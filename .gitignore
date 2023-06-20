@@ -1,0 +1,50 @@
+# compiled output
+/courier-tracking/dist
+/tracking-worker/dist
+/node_modules
+/courier-tracking/node_modules
+/tracking-worker/node_modules
+
+# Logs
+/courier-tracking/logs
+/tracking-worker/logs
+/courier-tracking/npm-debug.log*
+/tracking-worker/npm-debug.log*
+/courier-tracking/yarn-debug.log*
+/tracking-worker/yarn-debug.log*
+/courier-tracking/yarn-error.log*
+/tracking-worker/yarn-error.log*
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+/courier-tracking/coverage
+/tracking-worker/coverage
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+/courier-tracking/.vscode/*
+/tracking-worker/.vscode/*
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
