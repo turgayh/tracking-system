@@ -25,4 +25,12 @@ export class AppService {
 
     return createdLoc;
   }
+
+  async getLastLocation(id: string): Promise<CourierLocation> {
+    const locations = await this.courierLocationModel
+      .find({ courierID: id })
+      .sort({ created: -1 })
+      .exec();
+    return locations[0];
+  }
 }

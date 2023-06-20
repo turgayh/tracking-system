@@ -20,7 +20,7 @@ services:
       - "15672:15672"
       
   redis:
-    image: "redis:alpine"
+    image: redis:latest
     hostname: redis
     ports:
       - "6379:6379"

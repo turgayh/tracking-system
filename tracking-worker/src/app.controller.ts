@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 import { MessagePattern } from '@nestjs/microservices';
 import { CreateCourierLocationDto } from './dto/courier.dto';
@@ -9,7 +9,12 @@ export class AppController {
 
   @MessagePattern({ cmd: 'save-location' })
   async saveNewLocation(createCourierLocationDto: CreateCourierLocationDto) {
-    console.log(createCourierLocationDto);
     await this.appService.createNewLocation(createCourierLocationDto);
+  }
+  @Get('/last-location:id')
+  async getLastLocation(@Param() params: any) {
+    const courierID: string = params.id;
+
+    return await this.appService.getLastLocation(courierID);
   }
 }
