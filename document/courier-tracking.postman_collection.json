@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "ce4cd2f2-341b-4e13-9822-cbb8b6689461",
+		"name": "courier-tracking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28050919"
+	},
+	"item": [
+		{
+			"name": "/courier/save-courier-location",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"courierID\": 3347,\n    \"lat\":-80,\n    \"long\":133.3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/courier/save-courier-location",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"courier",
+						"save-courier-location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/courier/get-courier-last-location/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/courier/get-courier-last-location/337",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"courier",
+						"get-courier-last-location",
+						"337"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/courier/get-all-couriers-last-location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/courier/get-all-couriers-last-location",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"courier",
+						"get-all-couriers-last-location"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

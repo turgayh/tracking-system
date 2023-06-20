@@ -5,14 +5,18 @@ import { MongooseModule } from '@nestjs/mongoose';
 import {
   CourierLocation,
   CourierLocationSchema,
-} from './schemas/courier.schema';
+} from './schemas/courier.location.schema';
 import { RedisModule } from './redis/redis.module';
+import { CourierInfo, CourierInfoSchema } from './schemas/courier-info.schema';
 
 @Module({
   imports: [
     MongooseModule.forRoot('mongodb://localhost/courier-tracking'),
     MongooseModule.forFeature([
       { name: CourierLocation.name, schema: CourierLocationSchema },
+    ]),
+    MongooseModule.forFeature([
+      { name: CourierInfo.name, schema: CourierInfoSchema },
     ]),
     RedisModule,
   ],

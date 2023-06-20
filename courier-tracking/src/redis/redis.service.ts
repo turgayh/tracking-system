@@ -11,16 +11,7 @@ export class RedisService implements OnModuleDestroy {
     this.redis.quit();
   }
 
-  updateCourierLocation(id: string, lat: number, long: number) {
-    this.redis.GEOADD(id, {
-      latitude: lat,
-      longitude: long,
-      member: id,
-    });
-  }
-
   async getLocation(key: string) {
-    const x = await this.redis.GET(key);
-    console.log('cache data >>>>  ', x);
+    return await this.redis.json.GET(key);
   }
 }

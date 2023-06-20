@@ -9,7 +9,6 @@ export class CourierController {
   healthCheck() {
     return 'Alive';
   }
-
   @Post('save-courier-location')
   async saveCourierLocation(
     @Body() createCourierLocationDto: CreateCourierLocationDto,
@@ -18,9 +17,13 @@ export class CourierController {
   }
 
   @Get('get-courier-last-location/:id')
-  getLastLocationById(@Param() params: any) {
-    const courierID: string = params.id;
-    this.courierService.getCourierLocation(courierID);
-    return 'Alive';
+  async getLastLocationById(@Param() params: any) {
+    const courierID: number = params.id;
+    return await this.courierService.getLastLocation(courierID);
+  }
+
+  @Get('get-all-couriers-last-location')
+  async getLastLocationForAllCourier() {
+    return await this.courierService.getLastLocationAllCourier();
   }
 }

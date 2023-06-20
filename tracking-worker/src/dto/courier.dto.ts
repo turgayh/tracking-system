@@ -12,3 +12,13 @@ export class CreateCourierLocationDto {
 
   created: Date;
 }
+
+export class CourierInfoDto {
+  @IsNotEmpty()
+  courierID: number;
+
+  isActive = true;
+
+  @IsNotEmpty()
+  lastActivity: Date;
+}

@@ -2,7 +2,7 @@ import { IsNotEmpty, IsLongitude, IsLatitude } from 'class-validator';
 
 export class CreateCourierLocationDto {
   @IsNotEmpty()
-  courierID: string;
+  courierID: number;
 
   @IsNotEmpty()
   @IsLatitude()
@@ -11,4 +11,14 @@ export class CreateCourierLocationDto {
   @IsLongitude()
   @IsNotEmpty()
   long: number;
+}
+
+export class CourierInfoDto {
+  @IsNotEmpty()
+  courierID: number;
+
+  isActive = true;
+
+  @IsNotEmpty()
+  lastActivity: Date;
 }

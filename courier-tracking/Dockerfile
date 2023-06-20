@@ -1,17 +1,22 @@
-# Base image
-FROM node:16-alpine
+FROM node:20
 
-# Create app directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-COPY package*.json ./
+# Copy package.json and package-lock.json to the working directory
+COPY ./package*.json ./
 
-# Install app dependencies
-RUN yarn install
+# Install dependencies
+RUN npm install
 
-# Bundle app source
+# Copy the source code from the host to the working directory
 COPY . .
 
-# Creates a "dist" folder with the production build
-RUN yarn build
+# Expose port 3000 for the application
+EXPOSE 3000
+
+# Set the PORT environment variable
+ENV PORT=3000
+
+# Start the application
+CMD ["npm","run", "start:prod"]
